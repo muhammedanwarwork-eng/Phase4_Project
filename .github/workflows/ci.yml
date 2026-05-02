@@ -24,10 +24,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./backend
-<<<<<<< HEAD
           file: ./backend/Dockerfile
-=======
->>>>>>> 6d2d5f8c8a3ee81fe9697d0f7d9b9ab7720cc9c7
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/backend:latest
       - name: Build & Push Frontend Image
