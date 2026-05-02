@@ -14,11 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Login to GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Debug
+        run: |
+          docker --version
+          docker compose version
 
-      - name: Pull images
-        run: docker compose pull
-
-      - name: Restart containers
-        run: docker compose up -d
+      - name: Deploy
+        run: |
+          docker compose pull
+          docker compose up -d
