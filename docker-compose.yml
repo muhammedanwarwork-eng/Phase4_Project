@@ -1,6 +1,6 @@
 services:
   backend:
-    image: ghcr.io/anwar/backend:latest
+    build: ./backend
     container_name: backend
     networks:
       - app-network

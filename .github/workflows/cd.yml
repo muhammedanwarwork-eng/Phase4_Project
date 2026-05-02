@@ -11,15 +11,15 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug
+      - name: Show Debug
         run: |
-          docker --version
-          docker compose version
+          pwd
+          ls -la
 
-      - name: Deploy
+      - name: Deploy containers
         run: |
           docker compose pull
           docker compose up -d
