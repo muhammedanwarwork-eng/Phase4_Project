@@ -1,0 +1,20 @@
+name: CD - Deploy
+
+on:
+  workflow_run:
+    workflows: ["CI - Build & Push Images"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Pull latest images
+        run: |
+          cd Phase4_Project
+          docker compose pull
+      - name: Restart containers
+        run: |
+          cd Phase4_Project
+          docker compose up -d

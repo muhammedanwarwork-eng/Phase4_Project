@@ -1,2 +1,9 @@
 .env
 node_modules
+# GitHub Actions Self-hosted Runner
+actions-runner/
+_diag/
+_work/
+.runner
+.credentials
+.credentials_rsaparams
