@@ -19,7 +19,12 @@ jobs:
           pwd
           ls -la
 
-      - name: Deploy containers
+      - name: Deploy containers safely
         run: |
           docker compose pull
           docker compose up -d
+          
+      - name: Wait for health
+        run: |
+          sleep 10
+          curl -f http://localhost:8080/health
